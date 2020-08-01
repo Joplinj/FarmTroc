@@ -6,12 +6,13 @@
             </div>
             <div class="menuContainer">
                 <div class="menu">
-                    <ul>
-                        <li>Accueil</li>
-                        <li>Troc</li>
-                        <li>Carte</li>
-                        <li>A propos</li>
-                        <li>Contact</li>
+                    <ul> 
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Troc</a></li>
+                        <li><a href="#">Carte</a></li>
+                        <li><a href="#">A propos</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Connexion</a></li>
                     </ul>
                 </div>
             </div>
