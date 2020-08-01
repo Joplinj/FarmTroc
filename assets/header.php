@@ -1,5 +1,5 @@
 <header>
-    <div class="container">
+    <div class="containerHeader">
         <div class="headerBar">
             <div class="logoContainer">
                 <p>Mon logo</p>
