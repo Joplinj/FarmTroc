@@ -1,0 +1,42 @@
+
+.markerMap {
+    margin-top:-40px;
+    margin-left: -22px;
+  }
+  
+  .layer {
+    position: absolute;
+    bottom:45px;
+    left:-115px;
+    background-color: white;
+    box-shadow: 1px 1px 12px 1px rgba(0,0,0,.2);
+    width: 200px;
+    padding: 20px 10px 10px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.containerFeaturesIcons {
+    margin-top: 8px;
+}
+
+.featureIcon {
+    margin-right: 3px;
+}
+
+.containerVisiteButton {
+    margin-top: 10px;
+}
+
+.containerStarIcon {
+    margin-top: 7px;
+}
+
+.containerStarIcon span {
+    margin-left: 4px;
+}
+
+.starIcon {
+    vertical-align: middle;
+    margin-top: -2px;
+}

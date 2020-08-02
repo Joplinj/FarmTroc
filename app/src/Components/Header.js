@@ -1,20 +1,20 @@
 import React from 'react';
-import './Header.css';
+import './css/Header.css';
 
 function Header() {
     return (
         <header>
-            <div class="containerHeader">
-                <div class="headerBar">
-                    <div class="logoContainer">
+            <div className="containerHeader">
+                <div className="headerBar">
+                    <div className="logoContainer">
                         <p>Mon logo</p>
                     </div>
-                    <div class="menuContainer">
-                        <div class="menu">
+                    <div className="menuContainer">
+                        <div className="menu">
                             <ul>
-                                <li><a href="#">Carte</a></li>
-                                <li><a href="#">Comment ça marche ?</a></li>
-                                <li><a href="#">Connexion</a></li>
+                                <li><a>Carte</a></li>
+                                <li><a>Comment ça marche ?</a></li>
+                                <li><a>Connexion</a></li>
                             </ul>
                         </div>
                     </div>

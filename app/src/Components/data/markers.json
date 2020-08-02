@@ -1,0 +1,20 @@
+[
+    {
+        "title":"Le jardin d'Emilie",
+        "marker_Color":"red",
+        "bio":true,
+        "lat": "50.626201",
+        "lng": "3.061985",
+        "note": 4.3,
+        "vote": 31
+    },
+    {
+        "title":"Le jardin d'Edward",
+        "marker_Color":"#3c6382",
+        "bio":false,
+        "lat": "50.626201",
+        "lng": "2.061985",
+        "note": 5,
+        "vote": 2
+    }
+]
