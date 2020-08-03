@@ -4,22 +4,22 @@ import Header from './Components/Header';
 import GoogleMapReact from 'google-map-react';
 import MarkerMap from './Components/MarkerMap';
 import markers from './Components/data/markers.json';
-
-class Details extends Component {
-  render() {
-    return (
-      <div style={{ position: 'absolute', top:'72px', left:'0', backgroundColor:'white', height: '100%', width: '400px', boxShadow: '1px 6px 12px 1px rgba(0,0,0,.2)' }}>
-        <p>coucou</p>
-      </div>
-    );
-  }
-}
+import Details from './Components/Details'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       layerOpen: "",
+      detailsOpen: false,
+      dataDetails: {
+        title:"",
+        bio:true,
+        note: 0,
+        vote: 0,
+        offers: {}
+
+      }
     }
   }
 
@@ -45,6 +45,26 @@ class App extends Component {
     }
   }
 
+  toogleDetails = (item) => {
+    if(this.state.detailsOpen) {
+      this.setState({ 
+        detailsOpen: false
+      })
+      setTimeout(() => { 
+      this.setState({ 
+        detailsOpen: true,
+        dataDetails: item
+      })
+       }, 400);
+    }
+    else {
+      this.setState({ 
+        detailsOpen: true,
+        dataDetails: item
+      })
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -59,21 +79,27 @@ class App extends Component {
             {
               markers.map((marker, key) => {
                 return <MarkerMap
+                  item={marker}
                   lat={marker.lat}
                   lng={marker.lng}
                   text={marker.title}
                   color={marker.marker_Color}
                   bio={marker.bio}
                   vote={marker.vote}
+                  offers={marker.offers}
                   layerOpen={this.state.layerOpen}
                   callbackIsOpen={this.doubleLayerKill}
+                  callbackIsDetail={this.toogleDetails}
                   key={key}
                 />
               })
             }
           </GoogleMapReact>
         </div>
-        <Details />
+        <Details 
+          isVisible={this.state.detailsOpen}
+          item={this.state.dataDetails}
+        />
       </div>
     );
   }

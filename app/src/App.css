@@ -1,24 +1,29 @@
 /* Global */
 body {
-  margin:0;
-  padding:0;
-  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
   overflow: hidden;
 }
 
 a {
-text-decoration: none;
-color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 h2 {
-  margin:0;
+  margin: 0;
   padding: 0;
 }
+
+.separatorLight {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+}
+
 .App {
   text-align: center;
 }
-
 
 .mapContainer {
   height: calc(100vh - 50px);

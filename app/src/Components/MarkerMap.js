@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 
 class MarkerMap extends Component {
     render() {
-        const { text, color, bio, vote, layerOpen, callbackIsOpen } = this.props;
+        const { item, text, color, bio, vote, offers, layerOpen, callbackIsOpen, callbackIsDetail } = this.props;
         return (
             <div className="markerMap">
                 <div style={{ display: layerOpen === text ? "block" : "none" }} className="layer">
@@ -32,6 +32,7 @@ class MarkerMap extends Component {
                             variant="outlined"
                             color="primary"
                             style={{ width: '100%' }}
+                            onClick={() => callbackIsDetail(item)}
                         >
                             Visiter
                         </Button>
