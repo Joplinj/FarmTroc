@@ -11,7 +11,6 @@ class App extends Component {
     super(props);
     this.state = {
       layerOpen: "",
-      detailsOpen: false,
       dataDetails: {
         title:"",
         bio:true,
@@ -45,26 +44,6 @@ class App extends Component {
     }
   }
 
-  toogleDetails = (item) => {
-    if(this.state.detailsOpen) {
-      this.setState({ 
-        detailsOpen: false
-      })
-      setTimeout(() => { 
-      this.setState({ 
-        detailsOpen: true,
-        dataDetails: item
-      })
-       }, 400);
-    }
-    else {
-      this.setState({ 
-        detailsOpen: true,
-        dataDetails: item
-      })
-    }
-  }
-
   render() {
     return (
       <div className="App">
@@ -82,14 +61,8 @@ class App extends Component {
                   item={marker}
                   lat={marker.lat}
                   lng={marker.lng}
-                  text={marker.title}
-                  color={marker.marker_Color}
-                  bio={marker.bio}
-                  vote={marker.vote}
-                  offers={marker.offers}
                   layerOpen={this.state.layerOpen}
                   callbackIsOpen={this.doubleLayerKill}
-                  callbackIsDetail={this.toogleDetails}
                   key={key}
                 />
               })
@@ -98,7 +71,6 @@ class App extends Component {
         </div>
         <Details 
           isVisible={this.state.detailsOpen}
-          item={this.state.dataDetails}
         />
       </div>
     );

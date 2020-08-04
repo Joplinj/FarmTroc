@@ -1,0 +1,11 @@
+.containerOffers {
+    transition: all .3s;
+    position: absolute;
+    top:72px; 
+    background-color:white;
+    height: 100%;
+    width: 400px;
+    box-shadow: 1px 6px 12px 1px rgba(0,0,0,.2);
+    box-sizing: border-box;
+    z-index: 998
+}

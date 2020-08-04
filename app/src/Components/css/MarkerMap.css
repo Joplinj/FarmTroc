@@ -33,10 +33,11 @@
 }
 
 .containerStarIcon span {
-    margin-left: 4px;
+    margin-left: 5px;
+    font-size: 13px;
+    color: rgb(156, 156, 156);
 }
 
 .starIcon {
     vertical-align: middle;
-    margin-top: -2px;
 }
