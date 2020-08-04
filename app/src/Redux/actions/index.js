@@ -5,8 +5,9 @@ export const openDetails = (item) => {
     };
 };
 
-export const openOffers = () => {
+export const openOffers = (type) => {
     return {
         type: 'OPEN_OFFERS',
+        payload: type
     };
 };

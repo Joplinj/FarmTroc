@@ -1,29 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './css/Details.css'
-import { FaGlobeEurope, FaTree, FaStar, FaChevronRight } from "react-icons/fa";
+import { FaGlobeEurope, FaTree, FaStar, FaRegStar, FaChevronRight } from "react-icons/fa";
 import { GiCookingPot, GiCorn } from "react-icons/gi";
 import Offers from './Offers';
 import { useSelector, useDispatch } from 'react-redux'
 import { openOffers } from '../Redux/actions/index'
 
 
-//  const toogleOffers = () => {
-//     if (this.state.offersOpen) {
-//         this.setState({
-//             offersOpen: false
-//         })
-//         setTimeout(() => {
-//             this.setState({
-//                 offersOpen: true
-//             })
-//         }, 400);
-//     }
-//     else {
-//         this.setState({
-//             offersOpen: true
-//         })
-//     }
-// }
+const buildStars = (note) =>{
+    let stars = [];
+    for (var i = 0; i < note; i += 1) {
+        stars[i] = <FaStar size="15" color="yellow" className="starIcon" />
+    }
+    while(stars.length < 5) {
+        stars.push(<FaRegStar size="15" color="yellow" className="starIcon" />)
+    }
+    return stars
+} 
 
 function Details(isVisible) {
     // constructor(props) {
@@ -42,11 +35,7 @@ const dispatch = useDispatch();
                 <div className="itemHeader">
                     <h2>{dataDetails.title}</h2>
                     <div className="conainterDetailsStar">
-                        <FaStar size="15" color="yellow" className="starIcon" />
-                        <FaStar size="15" color="yellow" className="starIcon" />
-                        <FaStar size="15" color="yellow" className="starIcon" />
-                        <FaStar size="15" color="yellow" className="starIcon" />
-                        <FaStar size="15" color="yellow" className="starIcon" />
+                        {buildStars(dataDetails.note)}
                         <span>{dataDetails.vote} avis</span>
                     </div>
 
@@ -65,14 +54,14 @@ const dispatch = useDispatch();
                 </div>
                 <div className="separatorLight"></div>
                 <div className="containerActionsDetails">
-                    <div onClick={() => dispatch(openOffers())} className="ActionItemDetails">
+                    <div onClick={() => dispatch(openOffers("plate"))} className="ActionItemDetails">
                         <div className="ActionItemLabel">
                             <GiCookingPot size="25" color='#3c6382' className="ActionItemIconLabel" />
                             <span>Nos plats préparés</span>
                         </div>
                         <FaChevronRight size="15" color='#3C4043' className="ActionItemIcon" />
                     </div>
-                    <div onClick={() => dispatch(openOffers())} className="ActionItemDetails">
+                    <div onClick={() => dispatch(openOffers("gather"))} className="ActionItemDetails">
                         <div className="ActionItemLabel">
                             <GiCorn size="25" color='#3c6382' className="ActionItemIconLabel" />
                             <span>Nos récoltes</span>
@@ -82,8 +71,9 @@ const dispatch = useDispatch();
                 </div>
             </div>
             <Offers
-                isVisible={isOffersOpen}
+                isVisible={isOffersOpen.opened}
                 offers={dataDetails.offers}
+                type={isOffersOpen.type}
             />
         </div>
     );

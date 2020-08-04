@@ -26,11 +26,23 @@ const initState = {
 const isDetailsOpenReducer = (state = initState, action) => {
     switch (action.type) {
         case 'DETAILS_OPEN':
-            return {
-                ...state,
-                opened: !state.opened,
-                item: action.payload
+            if (state.opened && state.item === action.payload) {
+                return state
+            }
+            else if (state.opened && state.item !== action.payload) {
+                return {
+                    ...state,
+                    opened: true,
+                    item: action.payload
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    opened: !state.opened,
+                    item: action.payload
 
+                }
             }
         default:
             return state;

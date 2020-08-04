@@ -1,13 +1,26 @@
-import React, { Component } from 'react';
-import { FaMapMarkerAlt, FaGlobeEurope, FaTree, FaStar } from "react-icons/fa";
+import React from 'react';
+import { FaMapMarkerAlt, FaGlobeEurope, FaTree, FaStar, FaRegStar } from "react-icons/fa";
 import './css/MarkerMap.css'
 import { Button } from '@material-ui/core';
 import { openDetails } from '../Redux/actions/index'
 import { useDispatch } from 'react-redux'
 
+
+const buildStars = (note) =>{
+    let stars = [];
+    for (var i = 0; i < note; i += 1) {
+        stars[i] = <FaStar size="15" color="yellow" className="starIcon" />
+    }
+    while(stars.length < 5) {
+        stars.push(<FaRegStar size="15" color="yellow" className="starIcon" />)
+    }
+    return stars
+} 
+
 function MarkerMap({item, layerOpen, callbackIsOpen}) {
     const dispatch = useDispatch();
     const { title, marker_Color, bio, note, vote} = item;
+    
     return (
         <div className="markerMap">
             <div style={{ display: layerOpen === title ? "block" : "none" }} className="layer">
@@ -15,11 +28,7 @@ function MarkerMap({item, layerOpen, callbackIsOpen}) {
                     {title}
                 </h2>
                 <div className="containerStarIcon">
-                    <FaStar size="15" color="yellow" className="starIcon" />
-                    <FaStar size="15" color="yellow" className="starIcon" />
-                    <FaStar size="15" color="yellow" className="starIcon" />
-                    <FaStar size="15" color="yellow" className="starIcon" />
-                    <FaStar size="15" color="yellow" className="starIcon" />
+                    {buildStars(note)}
                     <span>{vote} avis</span>
                 </div>
 

@@ -9,3 +9,84 @@
     box-sizing: border-box;
     z-index: 998
 }
+
+.headerOffers {
+    text-align: left;
+    padding: 25px;
+}
+
+.offersItem {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color .2s;
+}
+
+.offersItem:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.offersItem:hover .offersItemFooter {
+    opacity: 1;
+    bottom: 10px;
+}
+
+.offersItemLeft {
+float: left;
+}
+
+.offersItemRight {
+    float: right;
+}
+
+.offersItemLeft h4 {
+    display: inline-block;
+    margin:0;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.offersItemPickedDate {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #3C4043;
+}
+
+.offersItemQuantity {
+    font-size: 15px;
+    color: #3C4043;
+}
+
+.veganIcon {
+    display: inline-block;
+}
+
+.offersItemFooter {
+    opacity: 0;
+    position: absolute;
+    bottom:15px;
+    left:0;
+    width: 100%;
+    text-align: center;
+    transition: all .2s;
+}
+
+.offersItemFooter p {
+    padding:0;
+    margin:0;
+    font-size:15px;
+    display: inline-block;
+    color: #60a3bc;
+}
+
+.offersItemFooter .iconDown {
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-left: 2px;
+}

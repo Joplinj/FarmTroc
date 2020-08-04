@@ -7,11 +7,19 @@
         "bio":true,
         "lat": "50.626201",
         "lng": "3.061985",
-        "note": 4.3,
+        "note": 4,
         "vote": 31,
         "offers": [
             {
-                "type": "recolte",
+                "type": "gather",
+                "title":"Concombres",
+                "quantity": 1,
+                "bio": true,
+                "picked_date": "01/08/2020",
+                "variety": "variété 1"
+            },
+            {
+                "type": "gather",
                 "title":"Tomates",
                 "quantity": 1,
                 "bio": true,
@@ -19,11 +27,26 @@
                 "variety": "variété 1"
             },
             {
-                "type": "plat",
-                "title":"Chili",
+                "type": "plate",
+                "title":"Chili Con Carne",
                 "quantity": 25,
-                "bio": true,
-                "prepared_date": "01/08/2020",
+                "vegan": true,
+                "vege": false,
+                "picked_date": "01/08/2020",
+                "ingredients": [
+                    "Tomates",
+                    "Haricots rouge",
+                    "Piments",
+                    "Boeuf haché"
+                ]
+            },
+            {
+                "type": "plate",
+                "title":"Sauce bolognaise",
+                "quantity": 15,
+                "vegan": false,
+                "vege": false,
+                "picked_date": "03/07/2020",
                 "ingredients": [
                     "Tomates",
                     "Haricots rouge",
@@ -41,7 +64,7 @@
         "bio":false,
         "lat": "50.626201",
         "lng": "2.061985",
-        "note": 5,
+        "note": 4,
         "vote": 2,
         "offers":[]
     }
