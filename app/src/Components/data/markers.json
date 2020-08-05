@@ -11,6 +11,7 @@
         "vote": 31,
         "offers": [
             {
+                "id": 1,
                 "type": "gather",
                 "title":"Concombres",
                 "quantity": 1,
@@ -19,6 +20,7 @@
                 "variety": "variété 1"
             },
             {
+                "id": 2,
                 "type": "gather",
                 "title":"Tomates",
                 "quantity": 1,
@@ -27,6 +29,7 @@
                 "variety": "variété 1"
             },
             {
+                "id": 3,
                 "type": "plate",
                 "title":"Chili Con Carne",
                 "quantity": 25,
@@ -41,6 +44,7 @@
                 ]
             },
             {
+                "id": 4,
                 "type": "plate",
                 "title":"Sauce bolognaise",
                 "quantity": 15,

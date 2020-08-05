@@ -15,6 +15,22 @@
     padding: 25px;
 }
 
+.containerOffersItem {
+    border-bottom: 1px solid #e6e6e6;
+    transition: background-color .2s; 
+    background-color: white;
+    cursor: pointer; 
+}
+
+.containerOffersItem:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.containerOffersItem:hover .offersItemFooter {
+    opacity: 1;
+    bottom: 10px;
+}
+
 .offersItem {
     position: relative;
     text-align: left;
@@ -22,19 +38,6 @@
     padding: 25px;
     box-sizing: border-box;
     overflow: hidden;
-    border-bottom: 1px solid #e6e6e6;
-    cursor: pointer;
-    background-color: white;
-    transition: background-color .2s;
-}
-
-.offersItem:hover {
-    background-color: rgb(243, 243, 243);
-}
-
-.offersItem:hover .offersItemFooter {
-    opacity: 1;
-    bottom: 10px;
 }
 
 .offersItemLeft {
@@ -89,4 +92,9 @@ float: left;
     vertical-align: middle;
     margin-top: -2px;
     margin-left: 2px;
+}
+
+.offersItemDetails {
+    transition: height .3s;
+    overflow: hidden;
 }

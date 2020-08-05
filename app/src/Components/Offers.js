@@ -4,6 +4,26 @@ import { FaLeaf, FaAngleDown } from "react-icons/fa";
 import { Tooltip } from "@material-ui/core"
 
 class Offers extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDetailsOfferOpen: 0
+        }
+    }
+
+    toogleOfferDetail = (id) => {
+        if (this.state.isDetailsOfferOpen === id) {
+            this.setState({
+                isDetailsOfferOpen: 0
+            })
+        }
+        else  {
+            this.setState({
+                isDetailsOfferOpen: id
+            })
+        }
+    }
+
     render() {
         const { isVisible, offers, type } = this.props;
         const data = offers.filter((offer) => offer.type === type);
@@ -23,20 +43,25 @@ class Offers extends Component {
                 <div className="separatorLight"></div>
                 {data.map(item => {
                     return (
-                        <div className="offersItem">
-                            <div className="offersItemLeft">
-                                <div>
-                                    <h4>{item.title}</h4>
-                                    {item.vegan ? <Tooltip title="Plat Vegan" placement="top"><div className="veganIcon"><FaLeaf size="15" color="green" /></div></Tooltip> : ""}
-                                    {item.vege ? <Tooltip title="Plat Végétarien" placement="top"><div className="veganIcon"><FaLeaf size="15" color="yellow" /></div></Tooltip> : ""}
+                        <div onClick={() => this.toogleOfferDetail(item.id)} className="containerOffersItem">
+                            <div className="offersItem">
+                                <div className="offersItemLeft">
+                                    <div>
+                                        <h4>{item.title}</h4>
+                                        {item.vegan ? <Tooltip title="Plat Vegan" placement="top"><div className="veganIcon"><FaLeaf size="15" color="green" /></div></Tooltip> : ""}
+                                        {item.vege ? <Tooltip title="Plat Végétarien" placement="top"><div className="veganIcon"><FaLeaf size="15" color="yellow" /></div></Tooltip> : ""}
+                                    </div>
+                                    <div className="offersItemQuantity">{item.quantity} {type === "plate" ? "Litres" : "Kg"}</div>
                                 </div>
-                                <div className="offersItemQuantity">{item.quantity} {type === "plate" ? "Litres" : "Kg"}</div>
+                                <div className="offersItemRight">
+                                    <div className="offersItemPickedDate">{type === "plate" ? "Fait le " : "Récolté le "} {item.picked_date}</div>
+                                </div>
+                                <div className="offersItemFooter">
+                                    <p>Détails</p><FaAngleDown size="16" color="#60a3bc" className="iconDown" />
+                                </div>
                             </div>
-                            <div className="offersItemRight">
-                                <div className="offersItemPickedDate">{type === "plate" ? "Fait le " : "Récolté le "} {item.picked_date}</div>
-                            </div>
-                            <div className="offersItemFooter">
-                                <p>Détails</p><FaAngleDown size="16" color="#60a3bc" className="iconDown" />
+                            <div className="offersItemDetails" style={{ height: this.state.isDetailsOfferOpen === item.id ? "200px" : "0px" }} >
+                                <p>Ingrédient</p>
                             </div>
                         </div>
                     )
