@@ -33,9 +33,9 @@
                 "type": "plate",
                 "title":"Chili Con Carne",
                 "quantity": 25,
-                "vegan": true,
-                "vege": false,
+                "plate_type": "Vegan",
                 "picked_date": "01/08/2020",
+                "gardenIngredients": true,
                 "ingredients": [
                     "Tomates",
                     "Haricots rouge",
@@ -48,9 +48,9 @@
                 "type": "plate",
                 "title":"Sauce bolognaise",
                 "quantity": 15,
-                "vegan": false,
-                "vege": false,
+                "plate_type": "Omnivore",
                 "picked_date": "03/07/2020",
+                "gardenIngredients": false,
                 "ingredients": [
                     "Tomates",
                     "Haricots rouge",

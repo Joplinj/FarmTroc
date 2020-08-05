@@ -13,6 +13,12 @@
 .headerOffers {
     text-align: left;
     padding: 25px;
+    background-color: #3c6382;
+    color: white;
+}
+
+.headerOffers p {
+    color:#e6e6e6;
 }
 
 .containerOffersItem {
@@ -97,4 +103,22 @@ float: left;
 .offersItemDetails {
     transition: height .3s;
     overflow: hidden;
+    padding: 0 25px;
+    text-align:left;
+}
+
+
+.offersItemDetails label {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.offersItemDetailsSection {
+    margin-bottom: 5px;
+    color:#3C4043;
+}
+
+.offersItemDetailsSection span {
+    font-size: 14px;
+    font-weight: 500;
 }

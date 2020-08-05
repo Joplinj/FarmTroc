@@ -17,7 +17,7 @@ class Offers extends Component {
                 isDetailsOfferOpen: 0
             })
         }
-        else  {
+        else {
             this.setState({
                 isDetailsOfferOpen: id
             })
@@ -48,8 +48,8 @@ class Offers extends Component {
                                 <div className="offersItemLeft">
                                     <div>
                                         <h4>{item.title}</h4>
-                                        {item.vegan ? <Tooltip title="Plat Vegan" placement="top"><div className="veganIcon"><FaLeaf size="15" color="green" /></div></Tooltip> : ""}
-                                        {item.vege ? <Tooltip title="Plat Végétarien" placement="top"><div className="veganIcon"><FaLeaf size="15" color="yellow" /></div></Tooltip> : ""}
+                                        {item.plate_type === "Vegan" ? <Tooltip title="Plat Vegan" placement="top"><div className="veganIcon"><FaLeaf size="15" color="green" /></div></Tooltip> : ""}
+                                        {item.plate_type === "Végétarien" ? <Tooltip title="Plat Végétarien" placement="top"><div className="veganIcon"><FaLeaf size="15" color="yellow" /></div></Tooltip> : ""}
                                     </div>
                                     <div className="offersItemQuantity">{item.quantity} {type === "plate" ? "Litres" : "Kg"}</div>
                                 </div>
@@ -60,8 +60,43 @@ class Offers extends Component {
                                     <p>Détails</p><FaAngleDown size="16" color="#60a3bc" className="iconDown" />
                                 </div>
                             </div>
-                            <div className="offersItemDetails" style={{ height: this.state.isDetailsOfferOpen === item.id ? "200px" : "0px" }} >
-                                <p>Ingrédient</p>
+                            <div className="offersItemDetails" style={{ height: this.state.isDetailsOfferOpen === item.id ? "130px" : "0px" }} >
+                                {
+                                    type === "plate" ?
+                                        (
+                                            <div>
+                                                <div className="offersItemDetailsSection">
+                                                    <label>Type de plat :</label><span> {item.plate_type}</span>
+                                                </div>
+                                                <div className="offersItemDetailsSection">
+                                                    <label>Ingrédients du jardin :</label><span> {item.gardenIngredients ? "Oui" : "Non"}</span>
+                                                </div>
+                                                <div className="offersItemDetailsSection">
+                                                    <label>Ingrédients :</label>
+                                                    {item.ingredients.map(ingr => {
+                                                        return <span> {ingr}, </span>
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )
+                                        :
+                                        ""
+                                }
+                                {
+                                    type === "gather" ?
+                                        (
+                                            <div>
+                                                <div className="offersItemDetailsSection">
+                                                    <label>Variété : </label><span> {item.variety}</span>
+                                                </div>
+                                                <div className="offersItemDetailsSection">
+                                                    <label>Bio : </label><span> {item.bio ? "Oui" : "Non"}</span>
+                                                </div>
+                                            </div>
+                                        )
+                                        :
+                                        ""
+                                }
                             </div>
                         </div>
                     )
