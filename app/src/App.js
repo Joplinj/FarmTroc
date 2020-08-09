@@ -1,80 +1,51 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './Components/Header';
-import GoogleMapReact from 'google-map-react';
-import MarkerMap from './Components/MarkerMap';
-import markers from './Components/data/markers.json';
-import Details from './Components/Details'
+import React, { useState, useEffect } from 'react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+import Panel from './Components/Panel/Panel'
+import Dashboard from './Components/Panel/Dashboard'
+import Details from './Components/Panel/Details'
+import Map from './Components/Map'
+import Register from './Components/Register'
+import { CircularProgress } from '@material-ui/core';
+import firebase from './Components/firebase'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      layerOpen: "",
-      dataDetails: {
-        title:"",
-        bio:true,
-        note: 0,
-        vote: 0,
-        offers: {}
 
-      }
-    }
-  }
+function App() {
 
-  static defaultProps = {
-    center: {
-      lat: 47.509787,
-      lng: 2.556278
-    },
-    zoom: 6
-  };
+    const [firebaseInitialized, setFirebaseInitialized] = useState(false)
 
-// Fonction appelée en callback des markers display dans le render, au clique. 
-  doubleLayerKill = (text) => {
-    if (this.state.layerOpen === text) {
-      this.setState({
-        layerOpen: ""
-      })
-    }
-    else {
-      this.setState({
-        layerOpen: text
-      })
-    }
-  }
+    useEffect(() => {
+        firebase.isInitialized().then(val => {
+            setFirebaseInitialized(val)
+        })
+    })
 
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <div className="mapContainer">
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: ['AIzaSyBZw1ag6s0Smsc3kMs_Mb07M4nv2-8Pv7w'] }}
-            defaultCenter={this.props.center}
-            defaultZoom={this.props.zoom}
-            yesIWantToUseGoogleMapApiInternals
-          >
-            {
-              markers.map((marker, key) => {
-                return <MarkerMap
-                  item={marker}
-                  lat={marker.lat}
-                  lng={marker.lng}
-                  layerOpen={this.state.layerOpen}
-                  callbackIsOpen={this.doubleLayerKill}
-                  key={key}
-                />
-              })
-            }
-          </GoogleMapReact>
-        </div>
-        <Details 
-          isVisible={this.state.detailsOpen}
-        />
-      </div>
-    );
-  }
+
+    return firebaseInitialized !== false ? (
+        < Router >
+            <Switch>
+                <Route exact path="/">
+                    <Map />
+                </Route>
+                <Route exact path="/panel">
+                    <Panel />
+                </Route>
+                <Route exact path="/inscription">
+                    <Register />
+                </Route>
+                <Route exact path="/panel/dashboard">
+                    <Dashboard />
+                </Route>
+                <Route exact path="/panel/details">
+                    <Details />
+                </Route>
+            </Switch>
+        </Router >
+    ) :
+        <div className="loader"> <CircularProgress /></div>
 }
 
-export default App;
+export default App

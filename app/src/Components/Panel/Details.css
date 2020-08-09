@@ -1,0 +1,22 @@
+.panelRightTitle {
+    margin-bottom: 55px;
+}
+
+.panelRightTitle h2 {
+    font-weight: 500;
+}
+
+.containerInput input{
+    width: 350px;
+}
+
+
+.containerLabel {
+    width: 300px;
+    font-weight: 600;
+    color: rgb(82, 82, 82)
+}
+
+.containerRowForm td{
+    border-bottom: 1px solid rgb(214, 214, 214);
+}

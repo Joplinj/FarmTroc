@@ -1,0 +1,55 @@
+.containerHeaderPanel {
+    width: 350px;
+    height: 100vh;
+    background-color: red;
+    box-sizing: border-box;
+    background-color: #3c6382;
+}
+
+.headerHeaderPanel {
+    padding: 25px;
+    border-bottom: 1px solid #497497;
+}
+
+.headerHeaderPanel h3 {
+    margin:0;
+    color:white;
+    text-align: center;
+    padding:  10px 0;
+    font-size: 23px;
+}
+
+.headerHeaderPanel p {
+    color: rgb(231, 231, 231);
+    font-size: 15px;
+}
+
+.containerLinksHeaderPanel {
+
+}
+
+.containerItemLinkHeaderPanel {
+    width:100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.itemLinkHeaderPanel {
+    padding: 25px;
+    background-color: #3c6382;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #497497;
+    color:white;
+    transition: background-color .2s;
+}
+
+.itemLinkHeaderPanel:hover {
+    background-color: #2d495f;
+}
+
+.iconItemHeaderPanel {
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-right: 10px;
+}

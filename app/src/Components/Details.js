@@ -7,28 +7,23 @@ import { useSelector, useDispatch } from 'react-redux'
 import { openOffers } from '../Redux/actions/index'
 
 
-const buildStars = (note) =>{
+const buildStars = (note) => {
     let stars = [];
     for (var i = 0; i < note; i += 1) {
         stars[i] = <FaStar size="15" color="yellow" className="starIcon" />
     }
-    while(stars.length < 5) {
+    while (stars.length < 5) {
         stars.push(<FaRegStar size="15" color="yellow" className="starIcon" />)
     }
     return stars
-} 
+}
 
-function Details(isVisible) {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         offersOpen: false,
-    //     }
-    // }
-const isDetailsOpen = useSelector(state => state.isDetailsOpen.opened);
-const dataDetails = useSelector(state => state.isDetailsOpen.item);
-const isOffersOpen = useSelector(state => state.openOffers);
-const dispatch = useDispatch();
+function Details() {
+
+    const isDetailsOpen = useSelector(state => state.isDetailsOpen.opened);
+    const dataDetails = useSelector(state => state.isDetailsOpen.item);
+    const isOffersOpen = useSelector(state => state.openOffers);
+    const dispatch = useDispatch();
     return (
         <div>
             <div className="containerDetails" style={{ left: isDetailsOpen ? "0" : "-400px" }}>

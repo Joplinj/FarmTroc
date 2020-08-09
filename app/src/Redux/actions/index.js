@@ -11,3 +11,10 @@ export const openOffers = (type) => {
         payload: type
     };
 };
+
+export const currentUser = (item) => {
+    return {
+        type: 'CURRENT_USER',
+        payload: item
+    };
+};
